@@ -40,15 +40,57 @@ Resource:
 ;
 
 Condition:
-	'condition' attr=Attribute '=' expression=Expr
+	'condition' expression=Expression
 ;
 
-Attribute:
-	name=ID
+Expression:
+	Or
 ;
 
-Expr:
-	{BoolConstant} value=('true'|'false')
+Or returns Expression:
+	Xor({Or.left=current} '||' right=Xor)*
+;
+
+Xor returns Expression:
+	And({Xor.left=current} '^' right=And)*
+;
+
+And returns Expression:
+	Equality ({And.left = current} '&&' right=Equality)*
+;
+
+Equality returns Expression:
+	Comparison (
+		{Equality.left=current} op=('=='|'!=')
+		right=Comparison
+	)*
+;
+
+Comparison returns Expression:
+	PlusOrMinus (
+		{Comparison.left=current} op=('>='|'<='|'>'|'<')
+		right=PlusOrMinus
+	)*
+;
+
+PlusOrMinus returns Expression:
+	MulOrDiv(
+		({PlusOrMinus.left=current} op=('+'|'-'))
+		right=MulOrDiv
+	)*
+;
+
+MulOrDiv returns Expression:
+	Atomic (
+		({MultOrDiv.left=current} op=('*'|'/'))
+		right=Atomic
+	)*
+;
+
+Atomic returns Expression:
+	'(' Expression ')' |
+	{BoolConstant} value=('true'|'false') |
+	{Attribute} value=ID 
 ;
 
 terminal XPATH: 
