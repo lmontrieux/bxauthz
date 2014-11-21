@@ -39,6 +39,6 @@ class ParserTest {
 					resource /calendar/*
 				}
 			}
-		'''
+		'''.parse.assertNoErrors
 	}
 }
