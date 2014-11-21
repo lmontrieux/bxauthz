@@ -10,7 +10,6 @@ Policy:
 	'policy' name=ID '{'
 		subject += Subject
 		transformation += Transformation
-		
 		rules += Rule*
 	'}'
 ;
