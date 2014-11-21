@@ -98,6 +98,14 @@ Atomic returns Expression:
 	{Attribute} value=ID 
 ;
 
+terminal SL_COMMENT:
+	'#' !('\n'|'\r')* ('\r'? '\n')?
+;
+
+terminal ML_COMMENT:
+	'(:' -> ':)'
+;
+
 terminal XPATH: 
 	(('//'|'/')('a'..'z'|'A'..'Z'|'0'..'9'|'*'|'['|']'|'<'|'>'|'='|' '|"'"|'.'|'@'|'('|')')+)+
 ;
