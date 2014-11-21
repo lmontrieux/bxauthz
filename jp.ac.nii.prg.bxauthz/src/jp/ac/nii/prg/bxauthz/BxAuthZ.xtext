@@ -81,15 +81,20 @@ PlusOrMinus returns Expression:
 ;
 
 MulOrDiv returns Expression:
-	Atomic (
+	Primary (
 		({MultOrDiv.left=current} op=('*'|'/'))
-		right=Atomic
+		right=Primary
 	)*
 ;
 
-Atomic returns Expression:
+Primary returns Expression:
 	'(' Expression ')' |
-	{Not} 'not' expression=Atomic |
+	{Not} 'not' expression=Primary |
+	Atomic
+;
+
+Atomic returns Expression:
+	{IntConstant} value=INT |
 	{BoolConstant} value=('true'|'false') |
 	{Attribute} value=ID 
 ;
