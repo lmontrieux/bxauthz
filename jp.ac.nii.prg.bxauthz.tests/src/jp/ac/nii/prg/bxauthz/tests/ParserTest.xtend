@@ -105,4 +105,20 @@ class ParserTest {
 			}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testNotCondition() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+					condition not(true) = true
+				}
+			}
+		'''.parse.assertNoErrors
+	}
 }
