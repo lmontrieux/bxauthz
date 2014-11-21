@@ -1,0 +1,9 @@
+grammar jp.ac.nii.prg.bxauthz.BxAuthZ with org.eclipse.xtext.common.Terminals
+
+generate bxAuthZ "http://www.ac.jp/nii/prg/bxauthz/BxAuthZ"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
