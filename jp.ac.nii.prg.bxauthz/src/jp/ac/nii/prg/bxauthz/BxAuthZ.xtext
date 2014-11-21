@@ -8,5 +8,15 @@ Model:
 
 Policy:
 	'policy' name=ID '{'
+		subject += Subject
+		transformation += Transformation
 	'}'
+;
+
+Subject:
+	'subject' name=ID
+;
+
+Transformation:
+	'transformation' name=ID
 ;
