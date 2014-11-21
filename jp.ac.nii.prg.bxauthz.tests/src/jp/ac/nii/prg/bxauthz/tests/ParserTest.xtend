@@ -52,7 +52,7 @@ class ParserTest {
 				rule MyRule {
 					action create
 					resource /calendar/*
-					condition isEnabled = true
+					condition isEnabled == true
 				}
 			}
 		'''.parse.assertNoErrors
