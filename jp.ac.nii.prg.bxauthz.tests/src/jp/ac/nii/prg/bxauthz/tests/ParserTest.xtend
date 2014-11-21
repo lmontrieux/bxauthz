@@ -183,6 +183,21 @@ class ParserTest {
 	}
 	
 	@Test
+	def testResourceXPathPredicateParenteses() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[something()]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
 	def testResourceXPathPredicateLT() {
 		'''
 			policy MyPolicy {
