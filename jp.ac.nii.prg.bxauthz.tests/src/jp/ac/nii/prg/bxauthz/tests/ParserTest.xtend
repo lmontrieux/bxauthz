@@ -41,4 +41,20 @@ class ParserTest {
 			}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testOneRuleBoolCondition() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+					condition isEnabled = true
+				}
+			}
+		'''.parse.assertNoErrors
+	}
 }
