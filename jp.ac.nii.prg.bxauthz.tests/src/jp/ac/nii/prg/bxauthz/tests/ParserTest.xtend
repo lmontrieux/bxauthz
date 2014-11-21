@@ -20,13 +20,6 @@ class ParserTest {
 	@Test
 	def testEmptyPolicy() {
 		'''
-			policy MyPolicy {}
-		'''.parse.assertNoErrors
-	}
-	
-	@Test
-	def testPolicyTransformationSubject() {
-		'''
 			policy MyPolicy {
 				subject SubjectId001
 				transformation calendar
