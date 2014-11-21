@@ -40,7 +40,15 @@ Resource:
 ;
 
 Condition:
-	'condition' name=ID
+	'condition' attr=Attribute '=' expression=Expr
+;
+
+Attribute:
+	name=ID
+;
+
+Expr:
+	{BoolConstant} value=('true'|'false')
 ;
 
 terminal XPATH: 
