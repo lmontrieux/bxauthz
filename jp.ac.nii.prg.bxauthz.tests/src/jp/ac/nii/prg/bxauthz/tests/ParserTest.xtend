@@ -23,4 +23,14 @@ class ParserTest {
 			policy MyPolicy {}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testPolicyTransformationSubject() {
+		'''
+			policy MyPolicy {
+				subject SubjectId001
+				transformation calendar
+			}
+		'''.parse.assertNoErrors
+	}
 }
