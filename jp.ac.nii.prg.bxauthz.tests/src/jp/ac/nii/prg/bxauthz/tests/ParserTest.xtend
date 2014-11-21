@@ -121,4 +121,184 @@ class ParserTest {
 			}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testResourceXPath() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar//test
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathStartWithDoublSlash() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource //calendar/test
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathStar() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar//test/*/other
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicate() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[1]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateLT() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[1<3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateGT() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[something>3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateEQ() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[something=3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateSpace() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[1 < 3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateAt() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/@test[1 < 3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateAtInBrackets() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[@something < 3]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateQuote() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[something = 'en']
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testResourceXPathPredicateDot() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/test[something = 35.00]
+				}
+			}
+		'''.parse.assertNoErrors
+	}
 }
