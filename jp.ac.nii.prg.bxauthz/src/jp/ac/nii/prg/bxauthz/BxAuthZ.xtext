@@ -10,6 +10,8 @@ Policy:
 	'policy' name=ID '{'
 		subject += Subject
 		transformation += Transformation
+		
+		rules += Rule*
 	'}'
 ;
 
@@ -19,4 +21,28 @@ Subject:
 
 Transformation:
 	'transformation' name=ID
+;
+
+Rule:
+	'rule' name=ID '{'
+		actions += Action+
+		resources += Resource+
+		conditions += Condition*
+	'}'
+;
+
+Action:
+	'action' name=ID
+;
+
+Resource:
+	'resource' name=XPATH
+;
+
+Condition:
+	'condition' name=ID
+;
+
+terminal XPATH: 
+    (('//'|'/')('a'..'z'|'A'..'Z'|'_'|':'|'0'..'9'|'*'|'['|']'|'@')+)+
 ;
