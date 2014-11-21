@@ -57,4 +57,52 @@ class ParserTest {
 			}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testAndCondition() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+					condition true && true
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testOrCondition() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+					condition true || true
+				}
+			}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testXorCondition() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+					condition true ^ true
+				}
+			}
+		'''.parse.assertNoErrors
+	}
 }
