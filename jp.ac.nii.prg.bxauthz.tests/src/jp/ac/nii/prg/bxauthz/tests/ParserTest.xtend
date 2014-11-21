@@ -26,4 +26,19 @@ class ParserTest {
 			}
 		'''.parse.assertNoErrors
 	}
+	
+	@Test
+	def testOneSimpleRule() {
+		'''
+			policy MyPolicy {
+				subject SubjectId01
+				transformation calendar
+				
+				rule MyRule {
+					action create
+					resource /calendar/*
+				}
+			}
+		'''
+	}
 }
