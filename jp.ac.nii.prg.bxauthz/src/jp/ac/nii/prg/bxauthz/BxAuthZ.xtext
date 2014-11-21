@@ -32,7 +32,7 @@ Rule:
 ;
 
 Action:
-	'action' name=ID
+	'action' name=('create'|'update'|'delete')
 ;
 
 Resource:
