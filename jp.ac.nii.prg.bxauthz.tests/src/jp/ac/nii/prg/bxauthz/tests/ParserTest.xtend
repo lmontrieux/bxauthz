@@ -116,7 +116,7 @@ class ParserTest {
 				rule MyRule {
 					action create
 					resource /calendar/*
-					condition not(true) = true
+					condition not(true) = false
 				}
 			}
 		'''.parse.assertNoErrors
