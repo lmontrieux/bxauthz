@@ -89,6 +89,7 @@ MulOrDiv returns Expression:
 
 Atomic returns Expression:
 	'(' Expression ')' |
+	{Not} 'not' expression=Atomic |
 	{BoolConstant} value=('true'|'false') |
 	{Attribute} value=ID 
 ;
