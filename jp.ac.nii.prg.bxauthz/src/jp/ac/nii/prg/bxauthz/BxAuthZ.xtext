@@ -89,8 +89,13 @@ MulOrDiv returns Expression:
 	)*
 ;
 
+FctCall returns Expression:
+	name=ID '(' (parameters+=Expression (',' parameters+=Expression)*)?')'
+;
+
 Primary returns Expression:
 	'(' Expression ')' |
+	FctCall |
 	{Not} 'not' expression=Primary |
 	Atomic
 ;
