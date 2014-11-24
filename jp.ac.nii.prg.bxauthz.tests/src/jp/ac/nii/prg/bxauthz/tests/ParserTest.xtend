@@ -526,6 +526,54 @@ class ParserTest {
 	}
 	
 	@Test
+	def testConditionFunctionNoArgs() {
+		'''
+		policy MyPolicy {
+			subject SubjecId01
+			transformation calendar
+			
+			rule MyRule {
+				action create
+				resource /calendar/*
+				condition functionCall()
+			}
+		}
+		'''.parse.assertNoErrors
+	}
+	
+		@Test
+	def testConditionFunctionOneArg() {
+		'''
+		policy MyPolicy {
+			subject SubjecId01
+			transformation calendar
+			
+			rule MyRule {
+				action create
+				resource /calendar/*
+				condition functionCall(true)
+			}
+		}
+		'''.parse.assertNoErrors
+	}
+	
+		@Test
+	def testConditionFunctionMultipleArgs() {
+		'''
+		policy MyPolicy {
+			subject SubjecId01
+			transformation calendar
+			
+			rule MyRule {
+				action create
+				resource /calendar/*
+				condition functionCall(true, 4, (2 >= 3))
+			}
+		}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
 	def testCommentTop() {
 		'''
 			(: this should be ignored :)
