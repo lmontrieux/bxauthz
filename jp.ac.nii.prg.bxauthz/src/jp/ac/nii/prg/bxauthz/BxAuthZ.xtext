@@ -79,6 +79,9 @@ PlusOrMinus returns Expression:
 	)*
 ;
 
+// Apparently Xtext isn't happy with using '/' for division.
+// I suspect it may have to do with the XPath expression.
+// This should be investigated
 MulOrDiv returns Expression:
 	Primary (
 		({MultOrDiv.left=current} op=('*'|'div'))
