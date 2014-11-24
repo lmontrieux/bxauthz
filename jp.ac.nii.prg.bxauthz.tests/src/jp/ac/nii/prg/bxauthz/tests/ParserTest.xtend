@@ -327,7 +327,7 @@ class ParserTest {
 				rule MyRule {
 					action create
 					resource /calendar
-					condition 4 / 2
+					condition 4 div 2
 				}
 			}
 		'''.parse.assertNoErrors

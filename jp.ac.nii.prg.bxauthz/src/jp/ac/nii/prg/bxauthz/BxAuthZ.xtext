@@ -81,7 +81,7 @@ PlusOrMinus returns Expression:
 
 MulOrDiv returns Expression:
 	Primary (
-		({MultOrDiv.left=current} op=('*'|'/'))
+		({MultOrDiv.left=current} op=('*'|'div'))
 		right=Primary
 	)*
 ;
