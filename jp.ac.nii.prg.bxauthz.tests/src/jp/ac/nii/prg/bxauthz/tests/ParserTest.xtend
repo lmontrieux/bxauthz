@@ -590,6 +590,22 @@ class ParserTest {
 	}
 	
 	@Test
+	def testConditionXPath() {
+		'''
+		policy MyPolicy {
+			subject SubjecId01
+			transformation calendar
+			
+			rule MyRule {
+				action create
+				resource /calendar/*
+				condition someFunction(/calendar/event[id<5230])
+			}
+		}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
 	def testCommentTop() {
 		'''
 			(: this should be ignored :)
