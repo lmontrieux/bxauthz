@@ -583,7 +583,7 @@ class ParserTest {
 			rule MyRule {
 				action create
 				resource /calendar/*
-				condition currentTime() >= 09:00am
+				condition currentTime() >= '09:00am'
 			}
 		}
 		'''.parse.assertNoErrors
