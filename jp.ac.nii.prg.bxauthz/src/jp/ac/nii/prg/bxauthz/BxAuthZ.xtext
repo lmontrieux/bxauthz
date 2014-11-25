@@ -103,7 +103,8 @@ Primary returns Expression:
 Atomic returns Expression:
 	{IntConstant} value=INT |
 	{BoolConstant} value=('true'|'false') |
-	{Attribute} value=ID 
+	{String} value=STRING |
+	{Attribute} value=ID
 ;
 
 terminal SL_COMMENT:
