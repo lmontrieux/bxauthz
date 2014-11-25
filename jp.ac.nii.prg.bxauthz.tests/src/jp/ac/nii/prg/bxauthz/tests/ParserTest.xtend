@@ -541,7 +541,7 @@ class ParserTest {
 		'''.parse.assertNoErrors
 	}
 	
-		@Test
+	@Test
 	def testConditionFunctionOneArg() {
 		'''
 		policy MyPolicy {
@@ -557,7 +557,7 @@ class ParserTest {
 		'''.parse.assertNoErrors
 	}
 	
-		@Test
+	@Test
 	def testConditionFunctionMultipleArgs() {
 		'''
 		policy MyPolicy {
@@ -568,6 +568,22 @@ class ParserTest {
 				action create
 				resource /calendar/*
 				condition functionCall(true, 4, (2 >= 3))
+			}
+		}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def testConditionTimeString() {
+		'''
+		policy MyPolicy {
+			subject SubjecId01
+			transformation calendar
+			
+			rule MyRule {
+				action create
+				resource /calendar/*
+				condition currentTime() >= 09:00am
 			}
 		}
 		'''.parse.assertNoErrors
