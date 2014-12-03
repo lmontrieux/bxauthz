@@ -104,7 +104,8 @@ Atomic returns Expression:
 	{IntConstant} value=INT |
 	{BoolConstant} value=('true'|'false') |
 	{String} value=STRING |
-	{Attribute} value=ID
+	{Attribute} value=ID |
+	{Path} value=XPATH
 ;
 
 terminal SL_COMMENT:
@@ -116,5 +117,5 @@ terminal ML_COMMENT:
 ;
 
 terminal XPATH: 
-	(('//'|'/')('a'..'z'|'A'..'Z'|'0'..'9'|'*'|'['|']'|'<'|'>'|'='|' '|"'"|'.'|'@'|'('|')')+)+
+	(('//'|'/')('a'..'z'|'A'..'Z'|'0'..'9'|'*'|'['|']'|'<'|'>'|'='|' '|"'"|'.'|'@'|'()')+)+
 ;
