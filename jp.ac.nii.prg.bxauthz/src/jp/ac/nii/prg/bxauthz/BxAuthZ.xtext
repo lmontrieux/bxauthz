@@ -8,14 +8,18 @@ Model:
 
 Policy:
 	'policy' name=ID '{'
-		subject += Subject
+		subjects += Subjects
 		transformation += Transformation
 		rules += Rule*
 	'}'
 ;
 
+Subjects:
+	'subjects' '{' subjects+=Subject+ '}'
+;
+
 Subject:
-	'subject' name=ID
+	name = ID
 ;
 
 Transformation:
@@ -31,7 +35,7 @@ Rule:
 ;
 
 Action:
-	'action' name=('create'|'update'|'delete')
+	'action' name=('create'|'read'|'update'|'delete')
 ;
 
 Resource:

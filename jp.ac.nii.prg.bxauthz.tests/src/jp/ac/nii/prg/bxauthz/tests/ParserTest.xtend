@@ -21,7 +21,7 @@ class ParserTest {
 	def testEmptyPolicy() {
 		'''
 			policy MyPolicy {
-				subject SubjectId001
+				subjects {SubjectId01}
 				transformation calendar
 			}
 		'''.parse.assertNoErrors
@@ -31,7 +31,7 @@ class ParserTest {
 	def testOneSimpleRule() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -46,7 +46,7 @@ class ParserTest {
 	def testResourceXPath() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -61,7 +61,7 @@ class ParserTest {
 	def testResourceXPathStartWithDoublSlash() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -76,7 +76,7 @@ class ParserTest {
 	def testResourceXPathStar() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -91,7 +91,7 @@ class ParserTest {
 	def testResourceXPathPredicate() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -106,7 +106,7 @@ class ParserTest {
 	def testResourceXPathPredicateParenteses() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -121,7 +121,7 @@ class ParserTest {
 	def testResourceXPathPredicateLT() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -136,7 +136,7 @@ class ParserTest {
 	def testResourceXPathPredicateGT() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -151,7 +151,7 @@ class ParserTest {
 	def testResourceXPathPredicateEQ() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -166,7 +166,7 @@ class ParserTest {
 	def testResourceXPathPredicateSpace() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -181,7 +181,7 @@ class ParserTest {
 	def testResourceXPathPredicateAt() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -196,7 +196,7 @@ class ParserTest {
 	def testResourceXPathPredicateAtInBrackets() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -211,7 +211,7 @@ class ParserTest {
 	def testResourceXPathPredicateQuote() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -226,7 +226,7 @@ class ParserTest {
 	def testResourceXPathPredicateDot() {
 		'''
 			policy MyPolicy {
-				subject SubjectId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -241,7 +241,7 @@ class ParserTest {
 	def testCondiditonTrue() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -257,7 +257,7 @@ class ParserTest {
 	def testCondiditonFalse() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -273,7 +273,7 @@ class ParserTest {
 	def testConditionAddition() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -289,7 +289,7 @@ class ParserTest {
 	def testConditionSubstraction() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -305,7 +305,7 @@ class ParserTest {
 	def testConditionMultiplication() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -321,7 +321,7 @@ class ParserTest {
 	def testConditionDivision() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -337,7 +337,7 @@ class ParserTest {
 	def testConditionOr() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -353,7 +353,7 @@ class ParserTest {
 	def testConditionAnd() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -369,7 +369,7 @@ class ParserTest {
 	def testConditionXor() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -385,7 +385,7 @@ class ParserTest {
 	def testConditionInt() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -401,7 +401,7 @@ class ParserTest {
 	def testConditionEq() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -417,7 +417,7 @@ class ParserTest {
 	def testConditionNeq() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -433,7 +433,7 @@ class ParserTest {
 	def testConditionNot() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -449,7 +449,7 @@ class ParserTest {
 	def testConditionGt() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -465,7 +465,7 @@ class ParserTest {
 	def testConditionGeq() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -481,7 +481,7 @@ class ParserTest {
 	def testConditionLt() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -497,7 +497,7 @@ class ParserTest {
 	def testConditionLeq() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -513,7 +513,7 @@ class ParserTest {
 	def testConditionPar() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				
 				rule MyRule {
@@ -529,7 +529,7 @@ class ParserTest {
 	def testConditionFunctionNoArgs() {
 		'''
 		policy MyPolicy {
-			subject SubjecId01
+			subjects {SubjectId01}
 			transformation calendar
 			
 			rule MyRule {
@@ -545,7 +545,7 @@ class ParserTest {
 	def testConditionFunctionOneArg() {
 		'''
 		policy MyPolicy {
-			subject SubjecId01
+			subjects {SubjectId01}
 			transformation calendar
 			
 			rule MyRule {
@@ -561,7 +561,7 @@ class ParserTest {
 	def testConditionFunctionMultipleArgs() {
 		'''
 		policy MyPolicy {
-			subject SubjecId01
+			subjects {SubjectId01}
 			transformation calendar
 			
 			rule MyRule {
@@ -577,7 +577,7 @@ class ParserTest {
 	def testConditionTimeString() {
 		'''
 		policy MyPolicy {
-			subject SubjecId01
+			subjects {SubjectId01}
 			transformation calendar
 			
 			rule MyRule {
@@ -593,7 +593,7 @@ class ParserTest {
 	def testConditionXPath() {
 		'''
 		policy MyPolicy {
-			subject SubjecId01
+			subjects {SubjectId01}
 			transformation calendar
 			
 			rule MyRule {
@@ -610,7 +610,7 @@ class ParserTest {
 		'''
 			(: this should be ignored :)
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 			}
 		'''.parse.assertNoErrors
@@ -620,7 +620,7 @@ class ParserTest {
 	def testCommentBottom() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 			}
 			(: this should be ignored :)
@@ -631,7 +631,7 @@ class ParserTest {
 	def testCommentInsidePolicy() {
 		'''
 			policy MyPolicy {
-				subject SubjecId01
+				subjects {SubjectId01}
 				transformation calendar
 				(: this should be ignored :)
 			}
