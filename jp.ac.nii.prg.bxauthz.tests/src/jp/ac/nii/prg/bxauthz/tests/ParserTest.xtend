@@ -279,7 +279,7 @@ class ParserTest {
 				rule MyRule {
 					action create
 					resource /calendar
-					condition a + b
+					condition $a + $b
 				}
 			}
 		'''.parse.assertNoErrors
@@ -295,7 +295,7 @@ class ParserTest {
 				rule MyRule {
 					action create
 					resource /calendar
-					condition a - b
+					condition $a - $b
 				}
 			}
 		'''.parse.assertNoErrors
