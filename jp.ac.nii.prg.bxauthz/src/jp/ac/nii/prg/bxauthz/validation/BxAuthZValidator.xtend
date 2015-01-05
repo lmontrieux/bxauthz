@@ -7,8 +7,6 @@ import jp.ac.nii.prg.bxauthz.bxAuthZ.Policy
 import org.eclipse.xtext.validation.Check
 import jp.ac.nii.prg.bxauthz.bxAuthZ.BxAuthZPackage
 
-//import org.eclipse.xtext.validation.Check
-
 /**
  * Custom validation rules. 
  *
@@ -25,15 +23,4 @@ class BxAuthZValidator extends AbstractBxAuthZValidator {
 				EMPTY_POLICY
 			)
 	}
-
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
 }
