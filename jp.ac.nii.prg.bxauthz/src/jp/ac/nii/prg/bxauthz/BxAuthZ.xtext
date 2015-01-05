@@ -108,7 +108,7 @@ Atomic returns Expression:
 	{IntConstant} value=INT |
 	{BoolConstant} value=('true'|'false') |
 	{String} value=STRING |
-	{Attribute} value=ID |
+	{Attribute} value=ATTRIBUTE |
 	{Path} value=XPATH
 ;
 
@@ -116,8 +116,13 @@ terminal SL_COMMENT:
 	'#' !('\n'|'\r')* ('\r'? '\n')?
 ;
 
+
 terminal ML_COMMENT:
 	'(:' -> ':)'
+;
+
+terminal ATTRIBUTE:
+	'$' ID
 ;
 
 terminal XPATH: 
