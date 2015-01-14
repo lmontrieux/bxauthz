@@ -55,6 +55,13 @@ class BxAuthZModelUtils {
 	}
 	
 	private def static getRulesOfType(Policy policy, String type) {
-		policy.rules.filter[rule | rule.actions.contains(type)]
+		policy.rules.filter[rule | rule.isOfType(type)]
+	}
+	
+	private def static isOfType(Rule rule, String type) {
+		if (rule.actions.filter[action | action.name == type].isEmpty())
+			return false
+		else
+			return true
 	}
 }
