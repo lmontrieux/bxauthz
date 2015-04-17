@@ -29,9 +29,17 @@ Transformation:
 Rule:
 	'rule' name=ID '{'
 		actions += Action+
-		resources += Resource+
+		resources += (Resource|ResourceMatch)+
 		conditions += Condition*
 	'}'
+;
+
+ResourceMatch:
+	'resource' name=XPATH match=Matching
+;
+
+Matching:
+	'matching-by' name=XPATH
 ;
 
 Action:

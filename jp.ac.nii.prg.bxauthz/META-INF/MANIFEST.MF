@@ -11,6 +11,26 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: jp.ac.nii.prg.bxauthz,
+ jp.ac.nii.prg.bxauthz.bxAuthZ,
+ jp.ac.nii.prg.bxauthz.bxAuthZ.impl,
+ jp.ac.nii.prg.bxauthz.bxAuthZ.util,
+ jp.ac.nii.prg.bxauthz.formatting,
+ jp.ac.nii.prg.bxauthz.generator,
+ jp.ac.nii.prg.bxauthz.parser.antlr,
+ jp.ac.nii.prg.bxauthz.parser.antlr.internal,
+ jp.ac.nii.prg.bxauthz.scoping,
+ jp.ac.nii.prg.bxauthz.serializer,
+ jp.ac.nii.prg.bxauthz.services,
+ jp.ac.nii.prg.bxauthz.utils,
+ jp.ac.nii.prg.bxauthz.validation
